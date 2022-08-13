@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Chart from 'chart.js'
 
 export default {
  mounted() {
@@ -26,11 +25,11 @@ export default {
                     hoverOffset: 4
                 }]
             };
-        const config = {
+            const config = {
             type: 'doughnut',
             data: data,
         };  
-        const getElementById = new Chart(
+        const getElementById = new this.$_Chart(
             document.getElementById('DoughnutCharts'),
             config
         );

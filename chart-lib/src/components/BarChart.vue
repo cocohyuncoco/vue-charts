@@ -1,40 +1,23 @@
 <template>
     <div>
-        <canvas id="BarChart" width="400" height="400"></canvas>
+        <canvas ref="BarChart" width="400" height="400"></canvas>
     </div>
 </template>
 
 <script>
-import Chart from 'chart.js'
 
-export default {    
+
+export default {   
+    props: ['propsdata'], 
     mounted() {
-        const ctx = document.getElementById('BarChart');
-        const BarChart = new Chart(ctx, {
+        // const ctx = this.$refs.BarChart;
+        const BarChart = new this.$_Chart(this.$refs.BarChart, {
+
+            // 밑 속성들은 chart.js에서 제공하는 속성이지 vue 속성 아님
             type: 'bar',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
+                datasets: this.propsdata
             },
             options: {
                 scales: {
@@ -45,6 +28,9 @@ export default {
             }
         });
     },
+    onclick: function(){
+        this.$emit('refresh:chart');
+    }
 };
 </script>
 

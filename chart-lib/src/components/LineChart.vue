@@ -1,11 +1,10 @@
 <template>
     <div>
-        <canvas id="LineChart" width="400" height="400"></canvas>
+        <canvas ref="LineChart" id="LineChart" width="400" height="400"></canvas>
     </div>
 </template>
 
 <script>
-import Chart from 'chart.js'
 
 
 export default {
@@ -32,8 +31,9 @@ export default {
             type: 'line',
             data: data,
         };
-        const LineChart = new Chart(
-            document.getElementById('LineChart'),
+        const LineChart = new this.$_Chart(
+            // document.getElementById('LineChart'),
+            this.$refs.LineChart,
             config
         );
     },

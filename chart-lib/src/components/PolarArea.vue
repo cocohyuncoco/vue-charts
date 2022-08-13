@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Chart from 'chart.js' 
 
 export default {
     mounted() {
@@ -34,7 +33,7 @@ export default {
             data: data,
             options: {}
         };
-        const polarArea = new Chart(
+        const polarArea = new this.$_Chart(
             document.getElementById('polarArea'),
             config
         );
