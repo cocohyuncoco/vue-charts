@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>chart.js</h1>
+    <bar-chart></bar-chart>
+    <doughnut-charts></doughnut-charts>
+    <line-chart></line-chart>  
+    <polar-area></polar-area>  
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BarChart from './components/BarChart.vue'
+import DoughnutCharts from './components/DoughnutCharts.vue'
+import LineChart from './components/LineChart.vue'
+import PolarArea from './components/PolarArea.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  // 컴포넌트 속성 && 인스턴스 옵션
+ components:{
+    BarChart,
+    DoughnutCharts,
+    LineChart,
+    PolarArea
+ }
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+
 </style>
